@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore")
 
-os.system("git clone https://github.com/xuebinqin/DIS")
+os.system("git clone https://github.com/xuebinqin/DIS.git")
 os.system("mv DIS/IS-Net/* .")
 
 # project imports
@@ -137,17 +137,19 @@ def inference(image: Image):
   return [im_rgba, pil_mask]
 
 
-title = "图像背景去除"
-description = "可以从给定图像中删除背景的模型。 要使用它，只需上传您的图像"
+title = "智能抠图"
+description = "可以从给定图像中删除背景的模型。 要使用它，只需上传您的图像<br>右键图片另存为，下载图片"
 article = "jobcher"
 
 interface = gr.Interface(
     fn=inference,
     inputs=gr.Image(type='filepath'),
     outputs=["image", "image"],
+    examples=[['robot.png'], ['ship.png']],
     title=title,
     description=description,
     article=article,
+    allow_download=True,
     allow_flagging='never',
     theme="default",
     cache_examples=False,
