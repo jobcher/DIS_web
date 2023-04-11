@@ -137,15 +137,14 @@ def inference(image: Image):
   return [im_rgba, pil_mask]
 
 
-title = "Highly Accurate Dichotomous Image Segmentation"
-description = "This is an unofficial demo for DIS, a model that can remove the background from a given image. To use it, simply upload your image, or click one of the examples to load them. Read more at the links below.<br>GitHub: https://github.com/xuebinqin/DIS<br>Telegram bot: https://t.me/restoration_photo_bot<br>[![](https://img.shields.io/twitter/follow/DoEvent?label=@DoEvent&style=social)](https://twitter.com/DoEvent)"
-article = "<div><center><img src='https://visitor-badge.glitch.me/badge?page_id=max_skobeev_dis_public' alt='visitor badge'></center></div>"
+title = "图像背景去除"
+description = "可以从给定图像中删除背景的模型。 要使用它，只需上传您的图像"
+article = "jobcher"
 
 interface = gr.Interface(
     fn=inference,
     inputs=gr.Image(type='filepath'),
     outputs=["image", "image"],
-    examples=[['robot.png'], ['ship.png']],
     title=title,
     description=description,
     article=article,
